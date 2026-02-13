@@ -58,6 +58,22 @@ rails solid_queue:install:migrations
 rails db:migrate
 ```
 
+### 4. Assets Setup
+
+**For Propshaft (Rails 7+ default)**: Assets are automatically added to your `manifest.js` in development/test environments. For production, you can run:
+
+```bash
+rails generate solid_bro:install
+```
+
+Or manually add to `app/assets/config/manifest.js`:
+```javascript
+//= link solid_bro/application.css
+//= link solid_bro/application.js
+```
+
+**For Sprockets**: Assets are automatically precompiled - no additional setup needed.
+
 ## Usage
 
 Once mounted, access the dashboard at:
