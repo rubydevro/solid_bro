@@ -31,5 +31,16 @@ RSpec.describe "Queues", type: :request do
     follow_redirect!
     expect(response.body).to include("Queue resume logic not implemented.")
   end
+
+  it "deletes all jobs in a queue" do
+    expect {
+      delete "/solid_bro/queues/default/destroy_jobs"
+    }.to change { SolidQueue::Job.where(queue_name: "default").count }.from(1).to(0)
+
+    expect(response).to redirect_to("/solid_bro/queues")
+    follow_redirect!
+    expect(response.body).to include("All jobs in queue")
+    expect(response.body).to include("default")
+  end
 end
 

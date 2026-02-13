@@ -12,6 +12,7 @@ SolidBro::Engine.routes.draw do
     member do
       put :pause
       put :resume
+      delete :destroy_jobs
     end
   end
 

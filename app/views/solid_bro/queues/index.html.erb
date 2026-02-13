@@ -25,6 +25,7 @@
           </td>
           <td class="text-right">
             <%= button_to "Pause", pause_queue_path(queue_name), method: :put, class: "btn-icon", style: "color: var(--warning-color);" %>
+          <%= button_to "Delete all", destroy_jobs_queue_path(queue_name), method: :delete, data: { confirm: "Are you sure you want to delete all jobs in this queue?" }, class: "btn-icon btn-danger" %>
           </td>
         </tr>
       <% end %>
