@@ -9,7 +9,13 @@ module SolidBro
       @counts = job_counts
       base = scope_relation(@scope)
       base = apply_filters(base)
-      @pagy, @jobs = pagy(base.order(created_at: :desc), limit: 25)
+      # Support both Pagy 9.x (items) and Pagy 8+/43.x (limit)
+      pagy_options = if defined?(Pagy::DEFAULT) && Pagy::DEFAULT.key?(:items)
+        { items: 25 }
+      else
+        { limit: 25 }
+      end
+      @pagy, @jobs = pagy(base.order(created_at: :desc), **pagy_options)
     end
 
     def show

@@ -1,5 +1,10 @@
 module SolidBro
   module ApplicationHelper
+    # Support both Pagy 9.x (Frontend) and Pagy 8+/43.x (no separate module needed)
+    if defined?(Pagy::Frontend)
+      include Pagy::Frontend
+    end
+
     # Pretty-print job arguments for display
     def format_job_arguments(arguments)
       return "—" if arguments.blank?

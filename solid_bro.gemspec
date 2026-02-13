@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 7.0"
-  spec.add_dependency "pagy", ">= 8.0"
+  spec.add_dependency "pagy", ">= 5.0"  # Supports Pagy 9.x, 8.x, and 43.x
   spec.add_dependency "solid_queue"
 
   spec.add_development_dependency "rspec-rails"

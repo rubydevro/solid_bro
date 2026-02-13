@@ -105,7 +105,12 @@
   </table>
   <% if @pagy.pages > 1 %>
     <div class="pagination-wrapper">
-      <%== @pagy.series_nav %>
+      <%# Support both Pagy 9.x (pagy_nav) and Pagy 8+/43.x (series_nav) %>
+      <% if @pagy.respond_to?(:series_nav) %>
+        <%== @pagy.series_nav %>
+      <% else %>
+        <%== pagy_nav(@pagy) %>
+      <% end %>
     </div>
   <% end %>
 </div>
