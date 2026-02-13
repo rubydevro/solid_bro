@@ -1,0 +1,33 @@
+<div class="table-container">
+  <div class="table-header">
+    <h2>Queues</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Queue Name</th>
+        <th>Jobs Count</th>
+        <th>Status</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @queues.each do |queue_name, count| %>
+        <tr>
+          <td>
+            <span class="font-medium text-white"><%= queue_name %></span>
+          </td>
+          <td>
+            <span class="text-gray-300"><%= count %></span>
+          </td>
+          <td>
+             <span class="status-dot status-active"></span> Active
+          </td>
+          <td class="text-right">
+            <%= button_to "Pause", pause_queue_path(queue_name), method: :put, class: "btn-icon", style: "color: var(--warning-color);" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

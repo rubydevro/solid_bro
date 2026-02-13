@@ -1,0 +1,111 @@
+<nav class="jobs-tabs" aria-label="Job status">
+  <ul class="jobs-tabs-list">
+    <li><%= link_to "All", jobs_path(scope: "all", **filter_params_for_link), class: jobs_tab_class("all") %></li>
+    <li><%= link_to "Failed jobs (#{@counts['failed']})", jobs_path(scope: "failed", **filter_params_for_link), class: jobs_tab_class("failed") %></li>
+    <li><%= link_to "In Progress (#{@counts['in_progress']})", jobs_path(scope: "in_progress", **filter_params_for_link), class: jobs_tab_class("in_progress") %></li>
+    <li><%= link_to "Blocked (#{@counts['blocked']})", jobs_path(scope: "blocked", **filter_params_for_link), class: jobs_tab_class("blocked") %></li>
+    <li><%= link_to "Scheduled (#{@counts['scheduled']})", jobs_path(scope: "scheduled", **filter_params_for_link), class: jobs_tab_class("scheduled") %></li>
+    <li><%= link_to "Finished (#{@counts['finished']})", jobs_path(scope: "finished", **filter_params_for_link), class: jobs_tab_class("finished") %></li>
+  </ul>
+</nav>
+
+<%= form_with url: jobs_path, method: :get, local: true, class: "jobs-filters" do |f| %>
+  <%= hidden_field_tag :scope, @scope %>
+  <div class="jobs-filters-grid">
+    <div class="jobs-filter-field">
+      <%= label_tag :class_name, "Job class name" %>
+      <%= text_field_tag :class_name, params[:class_name], placeholder: "Filter by job class...", class: "jobs-filter-input" %>
+    </div>
+    <div class="jobs-filter-field">
+      <%= label_tag :queue_name, "Queue name" %>
+      <%= text_field_tag :queue_name, params[:queue_name], placeholder: "Filter by queue name...", class: "jobs-filter-input" %>
+    </div>
+    <% if @scope == "finished" %>
+      <div class="jobs-filter-field">
+        <%= label_tag :finished_at_start, "Finished at start" %>
+        <%= text_field_tag :finished_at_start, params[:finished_at_start], class: "jobs-filter-input", type: "datetime-local" %>
+      </div>
+      <div class="jobs-filter-field">
+        <%= label_tag :finished_at_end, "Finished at end" %>
+        <%= text_field_tag :finished_at_end, params[:finished_at_end], class: "jobs-filter-input", type: "datetime-local" %>
+      </div>
+    <% else %>
+      <div class="jobs-filter-field">
+        <%= label_tag :created_at_start, "Created at start" %>
+        <%= text_field_tag :created_at_start, params[:created_at_start], class: "jobs-filter-input", type: "datetime-local" %>
+      </div>
+      <div class="jobs-filter-field">
+        <%= label_tag :created_at_end, "Created at end" %>
+        <%= text_field_tag :created_at_end, params[:created_at_end], class: "jobs-filter-input", type: "datetime-local" %>
+      </div>
+    <% end %>
+    <div class="jobs-filter-actions">
+      <%= submit_tag "Filter", class: "btn-primary" %>
+      <%= link_to "Clear", jobs_path(scope: @scope), class: "btn-icon" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="table-container">
+  <div class="table-header">
+    <h2><%= jobs_scope_title(@scope) %> jobs</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Class / Queue</th>
+        <th>Arguments</th>
+        <th>Status</th>
+        <th><%= @scope == "finished" ? "Finished" : "Created" %> At</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @jobs.any? %>
+        <% @jobs.each do |job| %>
+          <tr>
+            <td>
+              <%= link_to job.id, job_path(job), class: "link-accent" %>
+            </td>
+            <td>
+              <div class="font-medium"><%= job.class_name %></div>
+              <div class="text-muted text-xs"><%= job.queue_name %></div>
+            </td>
+            <td title="<%= job.arguments.inspect %>">
+              <div class="truncate max-w-xs"><%= truncate(job.arguments.inspect, length: 40) %></div>
+            </td>
+            <td>
+              <% status_class = case job.status.to_s
+                 when "failed" then "status-failed"
+                 when "finished" then "status-finished"
+                 when "claimed" then "status-claimed"
+                 when "ready" then "status-ready"
+                 else "status-default"
+                 end %>
+              <span class="status-badge <%= status_class %>"><%= job.status %></span>
+            </td>
+            <td>
+              <%= @scope == "finished" && job.finished_at ? "#{time_ago_in_words(job.finished_at)} ago" : "#{time_ago_in_words(job.created_at)} ago" %>
+            </td>
+            <td class="text-right">
+              <% if job.status.to_s == "failed" %>
+                <%= button_to "Retry", retry_job_path(job), method: :put, class: "btn-icon", params: { scope: @scope } %>
+              <% end %>
+              <%= button_to "Discard", discard_job_path(job), method: :delete, class: "btn-icon btn-danger", params: { scope: @scope } %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="6" class="text-muted">No jobs found.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if @pagy.pages > 1 %>
+    <div class="pagination-wrapper">
+      <%== @pagy.series_nav %>
+    </div>
+  <% end %>
+</div>

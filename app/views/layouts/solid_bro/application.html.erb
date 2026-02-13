@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolidBro Dashboard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "solid_bro/application", media: "all" %>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <%= javascript_include_tag "solid_bro/application", defer: true %>
+</head>
+
+<body>
+    <header class="top-menu">
+        <div class="logo">SolidBro</div>
+        <nav>
+            <ul>
+                <li><%= link_to "Jobs", jobs_path, class: (controller_name == 'jobs' ? 'active' : '') %></li>
+                <li><%= link_to "Queues", queues_path, class: (controller_name == 'queues' ? 'active' : '') %></li>
+                <li><%= link_to "Workers", processes_path, class: (controller_name == 'processes' ? 'active' : '') %></li>
+                <li><%= link_to "Recurring tasks", recurring_tasks_path, class: (controller_name == 'recurring_tasks' ? 'active' : '') %></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="avatar">SB</span>
+        </div>
+    </header>
+
+    <main class="content">
+        <% if notice %>
+          <div style="background-color: var(--success-color); color: white; padding: 1rem; margin-bottom: 1rem; border-radius: 6px;">
+            <%= notice %>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div style="background-color: var(--danger-color); color: white; padding: 1rem; margin-bottom: 1rem; border-radius: 6px;">
+            <%= alert %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">
+                &copy; <%= Time.current.year %> SolidBro. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <!-- Add footer links if needed -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

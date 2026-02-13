@@ -1,0 +1,73 @@
+<div class="job-page-header">
+  <div class="job-page-title">
+    <h1>Job #<%= @job.id %></h1>
+    <p class="job-page-subtitle"><%= @job.class_name %> on <span class="job-queue-name"><%= @job.queue_name %></span></p>
+  </div>
+  <div class="job-page-actions">
+    <% if @job.status.to_s == "failed" %>
+      <%= button_to "Retry", retry_job_path(@job), method: :put, class: "btn-icon" %>
+    <% end %>
+    <%= button_to "Discard", discard_job_path(@job), method: :delete, class: "btn-icon btn-danger" %>
+  </div>
+</div>
+
+<div class="table-container">
+  <div class="table-header">
+    <h2>Details</h2>
+  </div>
+  <table class="job-details-table">
+    <tbody>
+      <tr>
+        <th scope="row">ID</th>
+        <td><%= @job.id %></td>
+      </tr>
+      <tr>
+        <th scope="row">Class</th>
+        <td><%= @job.class_name %></td>
+      </tr>
+      <tr>
+        <th scope="row">Queue</th>
+        <td><%= @job.queue_name %></td>
+      </tr>
+      <tr>
+        <th scope="row">Status</th>
+        <td>
+          <% status_class = case @job.status.to_s
+             when "failed" then "status-failed"
+             when "finished" then "status-finished"
+             when "claimed" then "status-claimed"
+             when "ready" then "status-ready"
+             else "status-default"
+             end %>
+          <span class="status-badge <%= status_class %>"><%= @job.status %></span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Created at</th>
+        <td><%= @job.created_at ? l(@job.created_at, format: :long) : "—" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Scheduled at</th>
+        <td><%= @job.scheduled_at ? l(@job.scheduled_at, format: :long) : "—" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Arguments</th>
+        <td>
+          <pre class="job-arguments-block"><%= format_job_arguments(@job.arguments) %></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<% if @job.respond_to?(:failed_execution) && @job.failed_execution %>
+  <div class="table-container table-container--error">
+    <div class="table-header">
+      <h2>Exception</h2>
+    </div>
+    <div class="exception-content">
+      <p class="exception-message"><%= @job.failed_execution.error_class %>: <%= @job.failed_execution.error_message %></p>
+      <pre class="job-arguments-block job-arguments-block--backtrace"><%= @job.failed_execution.backtrace.join("\n") %></pre>
+    </div>
+  </div>
+<% end %>

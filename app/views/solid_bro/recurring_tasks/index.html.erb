@@ -1,0 +1,35 @@
+<div class="table-container">
+  <div class="table-header">
+    <h2>Recurring tasks</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Schedule</th>
+        <th>Class / Command</th>
+        <th>Queue</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @recurring_tasks.any? %>
+        <% @recurring_tasks.each do |task| %>
+          <tr>
+            <td><span class="font-medium"><%= task.key %></span></td>
+            <td><code class="code-inline"><%= task.schedule %></code></td>
+            <td>
+              <%= task.class_name.presence || task.command %>
+            </td>
+            <td><%= task.queue_name.presence || "—" %></td>
+            <td class="text-secondary"><%= task.description.presence || "—" %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="5" class="text-secondary">No recurring tasks configured.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

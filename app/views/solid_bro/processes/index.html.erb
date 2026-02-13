@@ -1,0 +1,37 @@
+<div class="table-container">
+  <div class="table-header">
+    <h2>Workers</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Hostname</th>
+        <th>Kind</th>
+        <th>Last Heartbeat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @processes.each do |process| %>
+        <tr>
+          <td>
+            <span class="font-medium text-white"><%= process.id %></span>
+          </td>
+          <td>
+            <span class="font-medium text-white"><%= process.name %></span>
+          </td>
+          <td>
+            <span class="text-gray-300"><%= process.hostname %></span>
+          </td>
+          <td>
+            <span class="badge badge-viewer"><%= process.kind %></span>
+          </td>
+          <td class="text-gray-300">
+            <%= process.last_heartbeat_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
