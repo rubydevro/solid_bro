@@ -1,6 +1,14 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/ecomsa/projects/SFW/solid_bro/lib/solid_bro/version.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ],
+        "branches": {}
+      },
       "/Users/ecomsa/projects/SFW/solid_bro/lib/solid_bro.rb": {
         "lines": [
           1,
@@ -86,6 +94,262 @@
           }
         }
       },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/helpers/solid_bro/application_helper.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          4,
+          2,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          42,
+          null,
+          null,
+          1,
+          42,
+          null,
+          null,
+          1,
+          7,
+          3,
+          1,
+          0,
+          0,
+          0,
+          3,
+          0,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+          "[:if, 0, 4, 4, 6, 7]": {
+            "[:then, 1, 5, 6, 5, 28]": 0,
+            "[:else, 2, 4, 4, 6, 7]": 1
+          },
+          "[:if, 3, 10, 6, 10, 38]": {
+            "[:then, 4, 10, 6, 10, 18]": 2,
+            "[:else, 5, 10, 6, 10, 38]": 2
+          },
+          "[:if, 6, 23, 6, 23, 65]": {
+            "[:then, 7, 23, 52, 23, 60]": 7,
+            "[:else, 8, 23, 63, 23, 65]": 35
+          },
+          "[:case, 9, 27, 6, 35, 9]": {
+            "[:when, 10, 28, 22, 28, 27]": 3,
+            "[:when, 11, 29, 25, 29, 33]": 1,
+            "[:when, 12, 30, 30, 30, 43]": 0,
+            "[:when, 13, 31, 26, 31, 35]": 0,
+            "[:when, 14, 32, 28, 32, 39]": 0,
+            "[:when, 15, 33, 27, 33, 37]": 3,
+            "[:else, 16, 34, 11, 34, 16]": 0
+          }
+        }
+      },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/jobs/solid_bro/application_job.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/mailers/solid_bro/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/models/solid_bro/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/jobs_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7,
+          null,
+          7,
+          0,
+          null,
+          7,
+          null,
+          7,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          1,
+          0,
+          0,
+          0,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          null,
+          7,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          7,
+          null,
+          7,
+          1,
+          1,
+          1,
+          null,
+          null,
+          7,
+          1,
+          1,
+          1,
+          null,
+          null,
+          7,
+          3,
+          3,
+          null,
+          4,
+          4,
+          null,
+          null,
+          7,
+          null,
+          null,
+          1,
+          4,
+          4,
+          null,
+          0,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+          "[:if, 0, 8, 15, 8, 75]": {
+            "[:then, 1, 8, 53, 8, 67]": 7,
+            "[:else, 2, 8, 70, 8, 75]": 0
+          },
+          "[:if, 3, 14, 21, 18, 9]": {
+            "[:then, 4, 15, 8, 15, 21]": 0,
+            "[:else, 5, 17, 8, 17, 21]": 7
+          },
+          "[:if, 6, 28, 6, 28, 60]": {
+            "[:then, 7, 28, 6, 28, 16]": 1,
+            "[:else, 8, 28, 6, 28, 60]": 0
+          },
+          "[:case, 9, 45, 6, 52, 9]": {
+            "[:when, 10, 46, 31, 46, 53]": 1,
+            "[:when, 11, 47, 31, 47, 72]": 0,
+            "[:when, 12, 48, 31, 48, 72]": 0,
+            "[:when, 13, 49, 31, 49, 74]": 0,
+            "[:when, 14, 50, 31, 50, 55]": 3,
+            "[:else, 15, 51, 11, 51, 26]": 3
+          },
+          "[:if, 16, 67, 14, 67, 97]": {
+            "[:then, 17, 67, 50, 67, 75]": 7,
+            "[:else, 18, 67, 78, 67, 97]": 0
+          },
+          "[:if, 19, 69, 6, 73, 9]": {
+            "[:then, 20, 70, 8, 72, 74]": 1,
+            "[:else, 21, 69, 6, 73, 9]": 6
+          },
+          "[:if, 22, 75, 6, 79, 9]": {
+            "[:then, 23, 76, 8, 78, 74]": 1,
+            "[:else, 24, 75, 6, 79, 9]": 6
+          },
+          "[:if, 25, 81, 6, 87, 9]": {
+            "[:then, 26, 82, 8, 83, 132]": 3,
+            "[:else, 27, 85, 8, 86, 137]": 4
+          },
+          "[:if, 28, 82, 8, 82, 136]": {
+            "[:then, 29, 82, 8, 82, 97]": 2,
+            "[:else, 30, 82, 8, 82, 136]": 1
+          },
+          "[:if, 31, 83, 8, 83, 132]": {
+            "[:then, 32, 83, 8, 83, 95]": 2,
+            "[:else, 33, 83, 8, 83, 132]": 1
+          },
+          "[:if, 34, 85, 8, 85, 141]": {
+            "[:then, 35, 85, 8, 85, 103]": 0,
+            "[:else, 36, 85, 8, 85, 141]": 4
+          },
+          "[:if, 37, 86, 8, 86, 137]": {
+            "[:then, 38, 86, 8, 86, 101]": 0,
+            "[:else, 39, 86, 8, 86, 137]": 4
+          },
+          "[:if, 40, 93, 6, 93, 32]": {
+            "[:then, 41, 93, 6, 93, 16]": 0,
+            "[:else, 42, 93, 6, 93, 32]": 4
+          }
+        }
+      },
       "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/application_controller.rb": {
         "lines": [
           1,
@@ -133,250 +397,13 @@
           }
         }
       },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/helpers/solid_bro/application_helper.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null
-        ],
-        "branches": {
-          "[:if, 0, 4, 4, 6, 7]": {
-            "[:then, 1, 5, 6, 5, 28]": 0,
-            "[:else, 2, 4, 4, 6, 7]": 1
-          },
-          "[:if, 3, 10, 6, 10, 38]": {
-            "[:then, 4, 10, 6, 10, 18]": 0,
-            "[:else, 5, 10, 6, 10, 38]": 0
-          },
-          "[:if, 6, 23, 6, 23, 65]": {
-            "[:then, 7, 23, 52, 23, 60]": 0,
-            "[:else, 8, 23, 63, 23, 65]": 0
-          },
-          "[:case, 9, 27, 6, 35, 9]": {
-            "[:when, 10, 28, 22, 28, 27]": 0,
-            "[:when, 11, 29, 25, 29, 33]": 0,
-            "[:when, 12, 30, 30, 30, 43]": 0,
-            "[:when, 13, 31, 26, 31, 35]": 0,
-            "[:when, 14, 32, 28, 32, 39]": 0,
-            "[:when, 15, 33, 27, 33, 37]": 0,
-            "[:else, 16, 34, 11, 34, 16]": 0
-          }
-        }
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/jobs_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ],
-        "branches": {
-          "[:if, 0, 8, 15, 8, 75]": {
-            "[:then, 1, 8, 53, 8, 67]": 0,
-            "[:else, 2, 8, 70, 8, 75]": 0
-          },
-          "[:if, 3, 13, 21, 17, 9]": {
-            "[:then, 4, 14, 8, 14, 21]": 0,
-            "[:else, 5, 16, 8, 16, 21]": 0
-          },
-          "[:if, 6, 27, 6, 27, 60]": {
-            "[:then, 7, 27, 6, 27, 16]": 0,
-            "[:else, 8, 27, 6, 27, 60]": 0
-          },
-          "[:case, 9, 44, 6, 51, 9]": {
-            "[:when, 10, 45, 31, 45, 53]": 0,
-            "[:when, 11, 46, 31, 46, 72]": 0,
-            "[:when, 12, 47, 31, 47, 72]": 0,
-            "[:when, 13, 48, 31, 48, 74]": 0,
-            "[:when, 14, 49, 31, 49, 55]": 0,
-            "[:else, 15, 50, 11, 50, 26]": 0
-          },
-          "[:if, 16, 66, 14, 66, 97]": {
-            "[:then, 17, 66, 50, 66, 75]": 0,
-            "[:else, 18, 66, 78, 66, 97]": 0
-          },
-          "[:if, 19, 68, 6, 72, 9]": {
-            "[:then, 20, 69, 8, 71, 74]": 0,
-            "[:else, 21, 68, 6, 72, 9]": 0
-          },
-          "[:if, 22, 74, 6, 78, 9]": {
-            "[:then, 23, 75, 8, 77, 74]": 0,
-            "[:else, 24, 74, 6, 78, 9]": 0
-          },
-          "[:if, 25, 80, 6, 86, 9]": {
-            "[:then, 26, 81, 8, 82, 132]": 0,
-            "[:else, 27, 84, 8, 85, 137]": 0
-          },
-          "[:if, 28, 81, 8, 81, 136]": {
-            "[:then, 29, 81, 8, 81, 97]": 0,
-            "[:else, 30, 81, 8, 81, 136]": 0
-          },
-          "[:if, 31, 82, 8, 82, 132]": {
-            "[:then, 32, 82, 8, 82, 95]": 0,
-            "[:else, 33, 82, 8, 82, 132]": 0
-          },
-          "[:if, 34, 84, 8, 84, 141]": {
-            "[:then, 35, 84, 8, 84, 103]": 0,
-            "[:else, 36, 84, 8, 84, 141]": 0
-          },
-          "[:if, 37, 85, 8, 85, 137]": {
-            "[:then, 38, 85, 8, 85, 101]": 0,
-            "[:else, 39, 85, 8, 85, 137]": 0
-          },
-          "[:if, 40, 92, 6, 92, 32]": {
-            "[:then, 41, 92, 6, 92, 16]": 0,
-            "[:else, 42, 92, 6, 92, 32]": 0
-          }
-        }
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/processes_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          0,
-          null,
-          null,
-          null
-        ],
-        "branches": {}
-      },
       "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/queues_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
-          4,
+          5,
           null,
           null,
           1,
@@ -393,6 +420,18 @@
           1,
           1,
           null,
+          1,
+          null,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/ecomsa/projects/SFW/solid_bro/app/controllers/solid_bro/processes_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           1,
           null,
           null,
@@ -407,38 +446,8 @@
           1,
           1,
           1,
-          0,
-          null,
-          null,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/jobs/solid_bro/application_job.rb": {
-        "lines": [
-          1,
           1,
           null,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/mailers/solid_bro/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/app/models/solid_bro/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null,
           null
         ],
@@ -504,16 +513,8 @@
           0
         ],
         "branches": {}
-      },
-      "/Users/ecomsa/projects/SFW/solid_bro/lib/solid_bro/version.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {}
       }
     },
-    "timestamp": 1770975785
+    "timestamp": 1772224584
   }
 }

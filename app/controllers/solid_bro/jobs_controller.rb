@@ -9,6 +9,7 @@ module SolidBro
       @counts = job_counts
       base = scope_relation(@scope)
       base = apply_filters(base)
+      base = base.preload(:ready_execution, :claimed_execution, :blocked_execution, :scheduled_execution, :failed_execution)
       # Support both Pagy 9.x (items) and Pagy 8+/43.x (limit)
       pagy_options = if defined?(Pagy::DEFAULT) && Pagy::DEFAULT.key?(:items)
         { items: 25 }

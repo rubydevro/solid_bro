@@ -89,10 +89,33 @@
               <%= @scope == "finished" && job.finished_at ? "#{time_ago_in_words(job.finished_at)} ago" : "#{time_ago_in_words(job.created_at)} ago" %>
             </td>
             <td class="text-right">
-              <% if job.status.to_s == "failed" %>
-                <%= button_to "Retry", retry_job_path(job), method: :put, class: "btn-icon", params: { scope: @scope } %>
-              <% end %>
-              <%= button_to "Discard", discard_job_path(job), method: :delete, class: "btn-icon btn-danger", params: { scope: @scope } %>
+              <div class="job-action-buttons">
+                <% if job.status.to_s == "failed" %>
+                  <%= button_to retry_job_path(job),
+                      method: :put,
+                      class: "btn-icon",
+                      params: { scope: @scope },
+                      title: "Retry job" do %>
+                    <svg viewBox="0 0 20 20" aria-hidden="true" class="job-action-icon">
+                      <path d="M4 4v4h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M4.75 10a5.25 5.25 0 0 0 9.16 3.71L15.5 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M15.25 8A5.25 5.25 0 0 0 6.09 4.29L4.5 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  <% end %>
+                <% end %>
+
+                <%= button_to discard_job_path(job),
+                    method: :delete,
+                    class: "btn-icon btn-danger",
+                    params: { scope: @scope },
+                    title: "Discard job" do %>
+                  <svg viewBox="0 0 20 20" aria-hidden="true" class="job-action-icon">
+                    <path d="M4 6h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M8 6V4h4v2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M7 6v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                <% end %>
+              </div>
             </td>
           </tr>
         <% end %>

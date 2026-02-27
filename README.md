@@ -41,6 +41,31 @@ end
 
 This will make the dashboard available at `/solid_bro` in your application.
 
+### 1.1. Protecting the Dashboard with HTTP Basic Auth
+
+Authentication is handled by the host application. A simple way to protect the SolidBro UI is to wrap the engine in HTTP Basic auth in an initializer:
+
+```ruby
+# config/initializers/solid_bro.rb
+
+if Rails.env.production?
+  SolidBro::Engine.middleware.use Rack::Auth::Basic, "SolidBro" do |username, password|
+    # Use environment variables so credentials are not hard‑coded
+    ActiveSupport::SecurityUtils.secure_compare(username, ENV.fetch("SOLID_BRO_USER")) &
+      ActiveSupport::SecurityUtils.secure_compare(password, ENV.fetch("SOLID_BRO_PASSWORD"))
+  end
+end
+```
+
+Set the credentials in your environment (for example in `credentials.yml.enc`, your deployment environment, or `.env`):
+
+```bash
+SOLID_BRO_USER=admin
+SOLID_BRO_PASSWORD=super-secret
+```
+
+You can also choose to integrate with your existing authentication system instead of HTTP Basic (e.g. only allow signed‑in admins) by adding the appropriate middleware or constraints around the engine mount in your app.
+
 ### 2. Configure SolidQueue (if not already done)
 
 Make sure SolidQueue is configured in your application. Add to `config/application.rb`:
