@@ -53,6 +53,11 @@ jobs:
           ruby-version: ruby-4.0.0
           bundler-cache: true
 
+      - name: Prepare test database
+        env:
+          RAILS_ENV: test
+        run: cd test/dummy && bin/rails db:test:prepare
+
       - name: Run tests
         env:
           RAILS_ENV: test
