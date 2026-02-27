@@ -9,4 +9,3 @@ RSpec.describe SolidBro::ApplicationRecord, type: :model do
     expect(described_class.superclass).to eq(ActiveRecord::Base)
   end
 end
-

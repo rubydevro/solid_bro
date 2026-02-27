@@ -6,5 +6,3 @@ RSpec.describe SolidBro::VERSION do
     expect(SolidBro::VERSION).to match(/\A\d+\.\d+\.\d+\z/)
   end
 end
-
-

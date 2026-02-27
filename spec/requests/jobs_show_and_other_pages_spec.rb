@@ -5,7 +5,7 @@ RSpec.describe "SolidBro pages", type: :request do
     job = SolidQueue::Job.create!(
       queue_name: "default",
       class_name: "DetailJob",
-      arguments: [{ "job_class" => "DetailJob", "arguments" => [1] }],
+      arguments: [ { "job_class" => "DetailJob", "arguments" => [ 1 ] } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -20,7 +20,7 @@ RSpec.describe "SolidBro pages", type: :request do
     SolidQueue::Job.create!(
       queue_name: "email",
       class_name: "MailJob",
-      arguments: [{ "job_class" => "MailJob" }],
+      arguments: [ { "job_class" => "MailJob" } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -65,4 +65,3 @@ RSpec.describe "SolidBro pages", type: :request do
     expect(response.body).to include("test_task")
   end
 end
-

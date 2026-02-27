@@ -5,7 +5,7 @@ RSpec.describe "Jobs retry and discard", type: :request do
     job = SolidQueue::Job.create!(
       queue_name: "default",
       class_name: "RetryJob",
-      arguments: [{ "job_class" => "RetryJob" }],
+      arguments: [ { "job_class" => "RetryJob" } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -19,7 +19,7 @@ RSpec.describe "Jobs retry and discard", type: :request do
     job = SolidQueue::Job.create!(
       queue_name: "default",
       class_name: "DiscardJob",
-      arguments: [{ "job_class" => "DiscardJob" }],
+      arguments: [ { "job_class" => "DiscardJob" } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -31,4 +31,3 @@ RSpec.describe "Jobs retry and discard", type: :request do
     expect(response).to redirect_to("/solid_bro/jobs?scope=all")
   end
 end
-

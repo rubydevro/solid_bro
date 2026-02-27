@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe SolidBro::ApplicationHelper, type: :helper do
   describe "#format_job_arguments" do
     it "pretty-prints JSON-serializable arguments" do
-      args = [{ "job_class" => "TestJob", "arguments" => [1, 2, 3] }]
+      args = [ { "job_class" => "TestJob", "arguments" => [ 1, 2, 3 ] } ]
       formatted = helper.format_job_arguments(args)
       expect(formatted).to include("TestJob")
       expect(formatted).to include("\n")
@@ -15,4 +15,3 @@ RSpec.describe SolidBro::ApplicationHelper, type: :helper do
     end
   end
 end
-

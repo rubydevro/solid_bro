@@ -12,4 +12,3 @@ rescue LoadError
 end
 
 task default: :spec
-

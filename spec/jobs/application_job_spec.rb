@@ -5,4 +5,3 @@ RSpec.describe SolidBro::ApplicationJob, type: :job do
     expect(described_class.superclass).to eq(ActiveJob::Base)
   end
 end
-

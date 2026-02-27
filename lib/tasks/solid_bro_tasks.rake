@@ -10,7 +10,7 @@ namespace :solid_bro do
       {
         queue_name: overrides[:queue_name] || "default",
         class_name: overrides[:class_name] || "DemoJob",
-        arguments: [{ "job_class" => overrides[:class_name] || "DemoJob", "index" => index }],
+        arguments: [ { "job_class" => overrides[:class_name] || "DemoJob", "index" => index } ],
         priority: overrides.fetch(:priority, 0),
         scheduled_at: overrides[:scheduled_at] || Time.current
       }.merge(overrides.except(:queue_name, :class_name, :priority, :scheduled_at))

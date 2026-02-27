@@ -5,4 +5,3 @@ RSpec.describe SolidBro::ApplicationMailer, type: :mailer do
     expect(described_class.default[:from]).to eq("from@example.com")
   end
 end
-

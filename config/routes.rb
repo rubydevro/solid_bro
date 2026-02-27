@@ -1,14 +1,14 @@
 SolidBro::Engine.routes.draw do
   root to: "jobs#index"
 
-  resources :jobs, only: [:index, :show], path: "jobs" do
+  resources :jobs, only: [ :index, :show ], path: "jobs" do
     member do
       put :retry
       delete :discard
     end
   end
 
-  resources :queues, only: [:index] do
+  resources :queues, only: [ :index ] do
     member do
       put :pause
       put :resume
@@ -16,6 +16,6 @@ SolidBro::Engine.routes.draw do
     end
   end
 
-  resources :processes, only: [:index], path: "workers"
-  resources :recurring_tasks, only: [:index], path: "recurring-tasks"
+  resources :processes, only: [ :index ], path: "workers"
+  resources :recurring_tasks, only: [ :index ], path: "recurring-tasks"
 end

@@ -14,5 +14,3 @@ RSpec.configure do |config|
 end
 
 require_relative "spec_helper"
-
-

@@ -5,7 +5,7 @@ RSpec.describe "Queues", type: :request do
     SolidQueue::Job.create!(
       queue_name: "default",
       class_name: "TestJob",
-      arguments: [{ "job_class" => "TestJob" }],
+      arguments: [ { "job_class" => "TestJob" } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -43,4 +43,3 @@ RSpec.describe "Queues", type: :request do
     expect(response.body).to include("default")
   end
 end
-

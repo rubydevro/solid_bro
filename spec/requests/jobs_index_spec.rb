@@ -5,7 +5,7 @@ RSpec.describe "Jobs index", type: :request do
     SolidQueue::Job.create!(
       queue_name: "default",
       class_name: "TestJob",
-      arguments: [{ "job_class" => "TestJob" }],
+      arguments: [ { "job_class" => "TestJob" } ],
       priority: 0,
       scheduled_at: Time.current
     )
@@ -15,7 +15,7 @@ RSpec.describe "Jobs index", type: :request do
     SolidQueue::Job.create!(
       queue_name: "mailers",
       class_name: "FailedJob",
-      arguments: [{ "job_class" => "FailedJob" }],
+      arguments: [ { "job_class" => "FailedJob" } ],
       priority: 0,
       scheduled_at: Time.current
     ).tap do |job|
@@ -27,7 +27,7 @@ RSpec.describe "Jobs index", type: :request do
     SolidQueue::Job.create!(
       queue_name: "finisher",
       class_name: "FinishedJob",
-      arguments: [{ "job_class" => "FinishedJob" }],
+      arguments: [ { "job_class" => "FinishedJob" } ],
       priority: 0,
       scheduled_at: Time.current,
       finished_at: 1.minute.ago
@@ -76,4 +76,3 @@ RSpec.describe "Jobs index", type: :request do
     expect(response.body).not_to include("FinishedJob")
   end
 end
-
