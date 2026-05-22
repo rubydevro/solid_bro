@@ -131,3 +131,9 @@ Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+This repository is maintained by [Ruby Dev](https://www.rubydev.ro).
+
+Works great with [Dead Bro](https://www.deadbro.com) — APM for Rails apps.
